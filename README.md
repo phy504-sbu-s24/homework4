@@ -11,7 +11,7 @@ https://zingale.github.io/phy504/inclass-rk2-orbit.html
 1. Let's learn a bit more about the functions in the `algorithm` and `numeric` headers.
 
    Write a program that creates a vector of doubles containing the
-   whole numbers `1.0` through 10.0`.  Now do the following:
+   whole numbers `1.0` through `10.0`.  Now do the following:
 
    a. Use `std::transform()` (see
       https://en.cppreference.com/w/cpp/algorithm/transform) to
@@ -53,7 +53,7 @@ https://zingale.github.io/phy504/inclass-rk2-orbit.html
       It would be helpful to have your `write_history()` routine
       use different filenames for each timestep so you can compare.
 
-   c. In class, we implmented Runge-Kutta 2nd order (RK2).  This
+   c. In class, we implemented Runge-Kutta 2nd order (RK2).  This
       is here:
 
       https://zingale.github.io/phy504/inclass-rk2-orbit.html
