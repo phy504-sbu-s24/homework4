@@ -12,9 +12,26 @@ struct OrbitState {
     double vy;
 };
 
+// forward declarations
+
 OrbitState rhs(const OrbitState& state);
+
 void write_history(const std::vector<OrbitState>& history);
-std::vector<OrbitState> integrate(const double a, const double tmax, const double dt_in);
+
+OrbitState update_state(const OrbitState& state,
+                        const double dt,
+                        const OrbitState& state_derivs);
+
+std::vector<OrbitState> integrate(const double a,
+                                  const double tmax,
+                                  const double dt_in);
+
+std::vector<OrbitState> integrate_rk2(const double a,
+                                      const double tmax,
+                                      const double dt_in);
+
+double error(const std::vector<OrbitState>& history);
+
 
 const double GM = 4.0 * M_PI * M_PI;   // G * Mass in AU, year, solar mass units
 
@@ -53,7 +70,8 @@ void write_history(const std::vector<OrbitState>& history) {
 
 }
 
-OrbitState update_state(const OrbitState& state, const double dt, const OrbitState& state_derivs) {
+OrbitState update_state(const OrbitState& state, const double dt,
+                        const OrbitState& state_derivs) {
 
     OrbitState state_new{};
 
@@ -66,7 +84,8 @@ OrbitState update_state(const OrbitState& state, const double dt, const OrbitSta
     return state_new;
 }
 
-std::vector<OrbitState> integrate(const double a, const double tmax, const double dt_in) {
+std::vector<OrbitState> integrate(const double a,
+                                  const double tmax, const double dt_in) {
 
     // how the history of the orbit
 
@@ -107,7 +126,8 @@ std::vector<OrbitState> integrate(const double a, const double tmax, const doubl
 
 }
 
-std::vector<OrbitState> integrate_rk2(const double a, const double tmax, const double dt_in) {
+std::vector<OrbitState> integrate_rk2(const double a,
+                                      const double tmax, const double dt_in) {
 
     // how the history of the orbit
 
